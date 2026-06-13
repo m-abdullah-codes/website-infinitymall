@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;family=Hanken+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#1d2021",
+                        "on-primary": "#313030",
+                        "on-secondary-fixed": "#1b1c19",
+                        "on-tertiary": "#392f1f",
+                        "on-secondary": "#30312d",
+                        "primary": "#c9c6c5",
+                        "inverse-on-surface": "#2e3132",
+                        "tertiary-container": "#120b02",
+                        "surface-bright": "#373a3b",
+                        "surface-container-low": "#191c1d",
+                        "surface-tint": "#c9c6c5",
+                        "primary-fixed": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#474743",
+                        "surface-variant": "#323536",
+                        "inverse-primary": "#5f5e5e",
+                        "tertiary": "#d5c4ad",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "platinum": "#D1D5D8",
+                        "on-surface-variant": "#c4c7c7",
+                        "on-primary-fixed": "#1c1b1b",
+                        "error": "#ffb4ab",
+                        "surface-container-high": "#272a2b",
+                        "on-surface": "#e1e3e4",
+                        "on-error": "#690005",
+                        "soft-ivory": "#E8E6E1",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-tertiary-container": "#867865",
+                        "secondary-fixed": "#e4e2dd",
+                        "on-tertiary-fixed-variant": "#504534",
+                        "obsidian": "#0C0C0C",
+                        "on-background": "#e1e3e4",
+                        "on-primary-container": "#7b7a79",
+                        "on-secondary-container": "#b6b5b0",
+                        "inverse-surface": "#e1e3e4",
+                        "graphite": "#2A2D2E",
+                        "tertiary-fixed": "#f2e0c8",
+                        "surface-container-highest": "#323536",
+                        "primary-container": "#0c0c0c",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#d5c4ad",
+                        "muted-bronze": "#8C7E6A",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#0c0f10",
+                        "secondary-fixed-dim": "#c8c6c2",
+                        "on-tertiary-fixed": "#231a0c",
+                        "emerald-accent": "#062E27",
+                        "outline-variant": "#444748",
+                        "secondary": "#c8c6c2",
+                        "background": "#111415",
+                        "surface": "#111415",
+                        "surface-dim": "#111415",
+                        "outline": "#8e9192",
+                        "secondary-container": "#474743"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "160px",
+                        "safe-margin": "80px",
+                        "technical-grid": "8px",
+                        "gutter": "32px"
+                    },
+                    "fontFamily": {
+                        "technical-mono": ["JetBrains Mono"],
+                        "headline-lg": ["EB Garamond"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["EB Garamond"],
+                        "display-xl": ["EB Garamond"],
+                        "body-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "technical-mono": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.2em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "32px", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "0.05em", "fontWeight": "300"}],
+                        "headline-lg-mobile": ["40px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "display-xl": ["120px", {"lineHeight": "110px", "letterSpacing": "-0.04em", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #0C0C0C; color: #E8E6E1; overflow-x: hidden; }
+        .blueprint-grid {
+            background-image: linear-gradient(to right, rgba(209, 213, 216, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(209, 213, 216, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .reveal-on-scroll { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
+        .reveal-on-scroll.active { opacity: 1; transform: translateY(0); }
+        .glass-panel {
+            background: rgba(42, 45, 46, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(209, 213, 216, 0.1);
+        }
+        .text-outline {
+            -webkit-text-stroke: 1px rgba(232, 230, 225, 0.3);
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="font-body-md antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-graphite/60 backdrop-blur-xl border-b border-platinum/10 flex justify-between items-center px-gutter py-technical-grid transition-all duration-500 ease-in-out">
+<div class="font-display-xl text-headline-md tracking-tighter text-soft-ivory">INFINITY</div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="font-label-caps text-label-caps text-platinum/60 hover:text-soft-ivory transition-colors duration-300" href="#">Residence</a>
+<a class="font-label-caps text-label-caps text-platinum/60 hover:text-soft-ivory transition-colors duration-300" href="#">Mall</a>
+<a class="font-label-caps text-label-caps text-platinum/60 hover:text-soft-ivory transition-colors duration-300" href="#">Amenities</a>
+<a class="font-label-caps text-label-caps text-platinum/60 hover:text-soft-ivory transition-colors duration-300" href="#">Progress</a>
+<a class="font-label-caps text-label-caps text-soft-ivory border-b border-soft-ivory pb-1" href="#">Timeline</a>
+</div>
+<button class="px-6 py-2 border border-soft-ivory text-soft-ivory font-label-caps text-[10px] hover:bg-soft-ivory hover:text-obsidian transition-all duration-300">
+            Request a Call
+        </button>
+</nav>
+<!-- Hero Section -->
+<header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40" data-alt="A cinematic architectural photograph of a towering modern skyscraper in Islamabad at dusk. The building is made of sleek glass and steel, reflecting a deep teal and orange sky. Low-angle shot emphasizes its massive scale and futuristic silhouette against a moody atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRBHK8Fv9Bz6yepYEX522Tz1eqj2pxFK-uA-ZJbztziyK8N6Zf7xQPr-iFSutgx5KxtDeTdGZ-GRmyYHKC59lJt9w6xJLWWqg6G3dtOH9eARLkpL_lsi23r4B1HZg_RHai8xe3Ockt-zruxHGdV2597JQlBDBBl7oOWPHRUiatPqIuTxG2QpllHaDZ6o6SwoZv4mHg1BSuD3uCnLLX6R_WKuTIcIVchyrunkq6HLuDpuTK9i8Y0QEAoniopgvE0DZbxImJuWc7Xg"/>
+
+</div>
+<div class="relative z-10 px-safe-margin text-center max-w-6xl">
+<div class="flex items-center justify-center gap-4 mb-8">
+<span class="h-px w-12 bg-muted-bronze"></span>
+<span class="font-technical-mono text-technical-mono text-muted-bronze tracking-widest uppercase">Editorial Feature</span>
+<span class="h-px w-12 bg-muted-bronze"></span>
+</div>
+<h1 class="font-display-xl text-headline-lg md:text-display-xl mb-12 leading-none">Top Luxury Projects in Islamabad:<br/><span class="italic font-light">Redefining Modern Living</span></h1>
+<div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-4 text-platinum/70 font-technical-mono text-technical-mono uppercase tracking-widest border-t border-platinum/10 pt-8 mt-12">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">person</span>
+                    BY ILYAS
+                </div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+                    JULY 2, 2025
+                </div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                    12 MIN READ
+                </div>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+<span class="material-symbols-outlined text-soft-ivory font-thin">expand_more</span>
+</div>
+</header>
+<!-- Main Content Area with Asymmetric Layout -->
+<main class="relative bg-obsidian blueprint-grid">
+<!-- Sticky Index Navigation -->
+<aside class="hidden xl:block fixed left-10 top-1/2 -translate-y-1/2 z-40">
+<nav class="flex flex-col gap-6 border-l border-platinum/10 pl-6">
+<a class="group flex items-center gap-4" href="#infinity-mall">
+<span class="text-technical-mono text-platinum/20 group-hover:text-soft-ivory transition-colors">01</span>
+<span class="font-label-caps text-[10px] tracking-widest opacity-0 group-hover:opacity-100 transition-all text-soft-ivory">INFINITY MALL</span>
+</a>
+<a class="group flex items-center gap-4" href="#royal-swiss">
+<span class="text-technical-mono text-platinum/20 group-hover:text-soft-ivory transition-colors">02</span>
+<span class="font-label-caps text-[10px] tracking-widest opacity-0 group-hover:opacity-100 transition-all text-soft-ivory">ROYAL SWISS</span>
+</a>
+<a class="group flex items-center gap-4" href="#j7-emporium">
+<span class="text-technical-mono text-platinum/20 group-hover:text-soft-ivory transition-colors">03</span>
+<span class="font-label-caps text-[10px] tracking-widest opacity-0 group-hover:opacity-100 transition-all text-soft-ivory">J7 EMPORIUM</span>
+</a>
+<a class="group flex items-center gap-4" href="#radisson">
+<span class="text-technical-mono text-platinum/20 group-hover:text-soft-ivory transition-colors">04</span>
+<span class="font-label-caps text-[10px] tracking-widest opacity-0 group-hover:opacity-100 transition-all text-soft-ivory">RADISSON BLU</span>
+</a>
+<a class="group flex items-center gap-4" href="#investment">
+<span class="text-technical-mono text-platinum/20 group-hover:text-soft-ivory transition-colors">05</span>
+<span class="font-label-caps text-[10px] tracking-widest opacity-0 group-hover:opacity-100 transition-all text-soft-ivory">INSIGHTS</span>
+</a>
+</nav>
+</aside>
+<!-- Section 1: Infinity Mall -->
+<section class="py-section-gap px-safe-margin max-w-[1600px] mx-auto" id="infinity-mall">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 reveal-on-scroll">
+<span class="font-headline-lg text-display-xl text-platinum/10 absolute -top-16 -left-8 pointer-events-none select-none">01</span>
+<div class="glass-panel p-12 relative z-10">
+<h2 class="font-headline-md text-headline-md text-soft-ivory mb-6">Infinity Mall: The New Architectural Pulse</h2>
+<p class="font-body-lg text-body-lg text-platinum/80 mb-8 leading-relaxed">
+                            A masterclass in glassmorphic design, Infinity Mall stands as Islamabad's premier luxury destination. It is more than a commercial hub; it's a cinematic experience defined by flowing geometries and transparency.
+                        </p>
+<div class="flex items-center gap-4 border-t border-platinum/10 pt-8">
+<span class="px-3 py-1 border border-emerald-accent text-emerald-accent font-technical-mono text-[10px]">OPERATIONAL</span>
+<span class="font-label-caps text-[11px] text-muted-bronze tracking-widest">GUJAR KHAN JUNCTION</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-7 reveal-on-scroll">
+<div class="relative overflow-hidden group">
+<img class="w-full h-[600px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A detailed, wide-angle shot of Infinity Mall's glass facade reflecting the blue-hour sky. The architecture features sharp, angular lines and expansive glass panels that create a sense of weightlessness. The surrounding environment is minimalist and clean, reinforcing the project's high-end, premium brand identity in Obsidian and Platinum tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD67V2OFFw9qVFjubMs59kokAtVuYggD-t7D-SxlPGnFgIAIfVTtoT_Ao7ha3njX-WkWZOmJeYeay0G0kYRRAZ4rES5vn55utj72SXWtqtrRcuvl9sGia5UMBL-VOrVrJ7p68JkGx5YwaPqvXOYIAWFEKU6NXZGTMtYmPX2jIobTMlAQEXhMN2fFk2wJmW9hHYqKkmHQezlJ8MdkL9oOAnS-Ff-w3b_7vtbLS2Dn6xVVvD2PvXLnC1PQPj-7mCAXhC671EgEG5vw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-60"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Royal Swiss J7 ICON -->
+<section class="py-section-gap bg-surface-container-low border-y border-platinum/5" id="royal-swiss">
+<div class="px-safe-margin max-w-[1400px] mx-auto">
+<div class="flex flex-col md:flex-row gap-section-gap">
+<div class="md:w-1/2 flex flex-col justify-center order-2 md:order-1 reveal-on-scroll">
+<div class="max-w-md ml-auto">
+<h3 class="font-technical-mono text-[11px] text-muted-bronze tracking-[0.5em] mb-4 uppercase">Hospitality Landmark</h3>
+<h2 class="font-headline-lg text-headline-lg text-soft-ivory mb-8">Royal Swiss J7 ICON</h2>
+<p class="font-body-md text-body-md text-platinum/70 mb-10 leading-loose">
+                                Bridging the gap between a 5-star hotel and executive residency, the J7 ICON is Islamabad's answer to international flagship living. Each detail is engineered for precision, from the double-height atrium to the infinity rooftop pool.
+                            </p>
+<blockquote class="border-l-2 border-muted-bronze pl-8 py-4 italic font-headline-md text-headline-md text-platinum/90 mb-10">
+                                "An icon not just by name, but by sheer architectural defiance."
+                            </blockquote>
+</div>
+</div>
+<div class="md:w-1/2 order-1 md:order-2 reveal-on-scroll">
+<div class="relative aspect-[4/5] bg-graphite">
+<img class="w-full h-full object-cover mix-blend-overlay opacity-80" data-alt="A grand vertical photograph of a luxury hotel tower at night, illuminated with subtle warm-gold accent lights that define its structural pillars. The building features large balcony terraces and high-spec glass cladding. The overall mood is sophisticated and exclusive, using a palette of deep blacks, charcoal greys, and soft platinum highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAglSlwJ27Remnoh4AmTumkz87fYIzo7h56rDOfoX2mM9cWcEAVvs8Zk2boo9QXmA3MjP_PXE5tCoSzsYEgmCdAKyoOa31kplyf7MwwClTmZbHKcf2hUKe2P4HW8FGJ1pSFRKuh_iGLLxKlM6tM0bW029hGXdkRQuWifOEAYr4mpmuwa1k9vDvG3UkqGAraNA0HC5YvR2pyH6yl3R3sDvw1GFHr-3tRbw5RWN5o9j56J9_XW7cRUQHkTGPOlHzG9-LvribVauk06g"/>
+<div class="absolute bottom-8 right-8 text-right">
+<p class="font-technical-mono text-[10px] text-soft-ivory/40 uppercase tracking-tighter">Phase I Completion: 2026</p>
+<p class="font-headline-md text-headline-md text-platinum italic">Grandeur Reimagined</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3 & 4: Mixed Grid (J7 Emporium & Radisson) -->
+<section class="py-section-gap px-safe-margin max-w-[1600px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- J7 Emporium -->
+<div class="md:col-span-8 reveal-on-scroll" id="j7-emporium">
+<div class="glass-panel h-full relative overflow-hidden group">
+<div class="p-16 relative z-10 flex flex-col justify-end h-full min-h-[500px]">
+<h3 class="font-headline-lg text-headline-lg text-soft-ivory mb-4">J7 Emporium</h3>
+<p class="font-body-md text-body-md text-platinum/70 max-w-xl">
+                                The nexus of retail and lifestyle. This mixed-use marvel integrates a shopping experience with premium corporate suites, creating a seamless urban ecosystem.
+                            </p>
+</div>
+<img class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale group-hover:scale-105 transition-transform duration-1000" data-alt="A modern mixed-use development with wide open plazas and sleek glass storefronts. The lighting is crisp and bright, highlighting the clean architectural lines and expensive stone finishes. The atmosphere represents a high-end commercial environment, focused on elite retail and professional office spaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxhxXH0UmOSPNAxjCZb3yclw8ehRCLRfXz82IR8ua1SkyjiDtmd-KqUu291a42otq3jJ0vNXF7htq2B7uYMNHFj7iDmQEbsICDHJD-tSOQzELfRV_8hqu9tZNG7Zy5bP6ZE2FnmZXXKq2B5jcuaXZWqvHdAsOFx3nXlEqr7qSPJhzntMHfMUzEPGzH7UowDaDLx3RQVTZmfGbdcGKKeqdCuO_4Qy5Rd_Wp_Kn0IcHlbu_1_-Z9eqJzuG5XmT9C4v4CFb6LiJklwQ"/>
+</div>
+</div>
+<!-- Radisson Blu -->
+<div class="md:col-span-4 reveal-on-scroll" id="radisson">
+<div class="border border-platinum/10 h-full p-12 bg-obsidian flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-muted-bronze text-4xl mb-8">apartment</span>
+<h3 class="font-headline-md text-headline-md text-soft-ivory mb-4">Radisson Blu</h3>
+<p class="font-body-md text-body-md text-platinum/60">International standards meet local prestige. A signature project representing global hospitality excellence in the heart of the capital.</p>
+</div>
+<div class="mt-12">
+<ul class="flex flex-col gap-4">
+<li class="flex justify-between border-b border-platinum/10 pb-2">
+<span class="font-technical-mono text-[11px] text-platinum/40">STATUS</span>
+<span class="font-technical-mono text-[11px] text-soft-ivory">PRE-LAUNCH</span>
+</li>
+<li class="flex justify-between border-b border-platinum/10 pb-2">
+<span class="font-technical-mono text-[11px] text-platinum/40">YIELD</span>
+<span class="font-technical-mono text-[11px] text-soft-ivory">8.5% PROJECTED</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Investment Insight -->
+<section class="py-section-gap bg-obsidian" id="investment">
+<div class="px-safe-margin max-w-4xl mx-auto border border-muted-bronze/30 p-16 relative reveal-on-scroll">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-obsidian px-6">
+<span class="font-technical-mono text-muted-bronze tracking-[0.4em] uppercase text-[10px]">Insider Perspective</span>
+</div>
+<div class="text-center">
+<h2 class="font-headline-lg text-headline-lg text-soft-ivory mb-8">The Investment Thesis</h2>
+<p class="font-body-lg text-body-lg text-platinum/80 mb-12 italic leading-relaxed">
+                        "Islamabad's real estate market is maturing from speculative growth into value-driven asset creation. Projects like Infinity and the J7 portfolio are not just buildings; they are infrastructure for the future economy of Pakistan."
+                    </p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="text-center">
+<p class="text-display-xl font-headline-lg text-outline mb-2">12%</p>
+<p class="font-label-caps text-[10px] text-muted-bronze tracking-widest uppercase">ANNUAL APPRECIATION</p>
+</div>
+<div class="text-center">
+<p class="text-display-xl font-headline-lg text-outline mb-2">2027</p>
+<p class="font-label-caps text-[10px] text-muted-bronze tracking-widest uppercase">MARKET PEAK</p>
+</div>
+<div class="text-center">
+<p class="text-display-xl font-headline-lg text-outline mb-2">AAA</p>
+<p class="font-label-caps text-[10px] text-muted-bronze tracking-widest uppercase">CREDIT RATING</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final Thoughts -->
+<section class="py-section-gap px-safe-margin max-w-2xl mx-auto text-center reveal-on-scroll">
+<h2 class="font-headline-md text-headline-md text-soft-ivory mb-8">Architectural Legacy</h2>
+<p class="font-body-md text-body-md text-platinum/70 mb-12">
+                As Islamabad expands its vertical horizon, the distinction between 'premium' and 'luxury' becomes clear. These five projects represent the latter—a commitment to quality that transcends market trends and creates lasting value for generations.
+            </p>
+<div class="flex flex-col items-center gap-4">
+<div class="w-16 h-px bg-platinum/20"></div>
+<p class="font-technical-mono text-technical-mono text-muted-bronze">END OF FEATURE</p>
+</div>
+</section>
+<!-- Bottom Navigation / Next Article -->
+<section class="border-t border-platinum/10">
+<div class="grid grid-cols-1 md:grid-cols-2">
+<a class="group relative overflow-hidden h-80 flex flex-col justify-center items-start px-safe-margin border-r border-platinum/10" href="#">
+<div class="absolute inset-0 bg-graphite opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+<span class="font-label-caps text-[10px] text-muted-bronze mb-4">PREVIOUS</span>
+<h4 class="font-headline-md text-platinum group-hover:text-soft-ivory transition-colors">Sustainable Skyscrapers: The 2024 Audit</h4>
+</a>
+<a class="group relative overflow-hidden h-80 flex flex-col justify-center items-end px-safe-margin text-right" href="#">
+<div class="absolute inset-0 bg-graphite opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+<span class="font-label-caps text-[10px] text-muted-bronze mb-4">NEXT ARTICLE</span>
+<h4 class="font-headline-md text-platinum group-hover:text-soft-ivory transition-colors">Digital Twins: The Future of Property Management</h4>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-obsidian border-t border-muted-bronze/20 px-safe-margin py-section-gap w-full grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-4">
+<div class="font-display-xl text-headline-lg text-soft-ivory mb-6">INFINITY</div>
+<p class="font-body-md text-body-md text-platinum/70 max-w-xs">© 2024 Infinity Mall &amp; Residence. Architectural Excellence.</p>
+</div>
+<div class="md:col-span-2">
+<h5 class="font-label-caps text-label-caps text-soft-ivory mb-6 uppercase tracking-widest">Navigation</h5>
+<ul class="flex flex-col gap-4 font-body-md text-body-md text-platinum/70">
+<li><a class="hover:text-soft-ivory underline decoration-muted-bronze transition-all" href="#">Residence</a></li>
+<li><a class="hover:text-soft-ivory underline decoration-muted-bronze transition-all" href="#">Mall</a></li>
+<li><a class="hover:text-soft-ivory underline decoration-muted-bronze transition-all" href="#">Amenities</a></li>
+<li><a class="hover:text-soft-ivory underline decoration-muted-bronze transition-all" href="#">Progress</a></li>
+</ul>
+</div>
+<div class="md:col-span-2">
+<h5 class="font-label-caps text-label-caps text-soft-ivory mb-6 uppercase tracking-widest">Legal</h5>
+<ul class="flex flex-col gap-4 font-body-md text-body-md text-platinum/70">
+<li><a class="hover:text-soft-ivory underline decoration-muted-bronze transition-all" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-soft-ivory underline decoration-muted-bronze transition-all" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div class="md:col-span-4 text-right">
+<h5 class="font-label-caps text-label-caps text-soft-ivory mb-6 uppercase tracking-widest">Contact</h5>
+<p class="font-body-md text-body-md text-platinum/70 mb-2">Global HQ: 1200 Obsidian Plaza, NYC</p>
+<p class="font-body-md text-body-md text-platinum/70">invest@infinity-residence.com</p>
+</div>
+</footer>
+<script>
+        // Simple scroll reveal observer
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Navigation transparency on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('py- technical-grid');
+                nav.classList.remove('py-technical-grid'); // No change in padding as per JSON but logic for interaction
+                nav.style.backgroundColor = 'rgba(12, 12, 12, 0.95)';
+            } else {
+                nav.style.backgroundColor = 'rgba(42, 45, 46, 0.6)';
+            }
+        });
+    </script>
+</body></html>

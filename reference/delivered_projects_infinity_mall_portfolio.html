@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Delivered Projects | INFINITY</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&amp;family=Hanken+Grotesk:wght@300;400;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#272a2b",
+                        "background": "#111415",
+                        "on-primary-fixed": "#1c1b1b",
+                        "muted-bronze": "#8C7E6A",
+                        "tertiary-container": "#120b02",
+                        "primary-fixed": "#e5e2e1",
+                        "tertiary-fixed-dim": "#d5c4ad",
+                        "on-tertiary-container": "#867865",
+                        "surface-container-lowest": "#0c0f10",
+                        "secondary-container": "#474743",
+                        "on-primary-container": "#7b7a79",
+                        "on-surface-variant": "#c4c7c7",
+                        "outline-variant": "#444748",
+                        "surface-container": "#1d2021",
+                        "on-secondary-container": "#b6b5b0",
+                        "on-background": "#e1e3e4",
+                        "inverse-surface": "#e1e3e4",
+                        "on-tertiary-fixed": "#231a0c",
+                        "on-secondary-fixed": "#1b1c19",
+                        "surface-tint": "#c9c6c5",
+                        "tertiary-fixed": "#f2e0c8",
+                        "on-secondary-fixed-variant": "#474743",
+                        "soft-ivory": "#E8E6E1",
+                        "primary-container": "#0c0c0c",
+                        "graphite": "#2A2D2E",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#111415",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "secondary-fixed": "#e4e2dd",
+                        "emerald-accent": "#062E27",
+                        "on-primary": "#313030",
+                        "surface-container-highest": "#323536",
+                        "inverse-primary": "#5f5e5e",
+                        "surface-bright": "#373a3b",
+                        "obsidian": "#0C0C0C",
+                        "surface-variant": "#323536",
+                        "on-tertiary": "#392f1f",
+                        "secondary-fixed-dim": "#c8c6c2",
+                        "inverse-on-surface": "#2e3132",
+                        "tertiary": "#d5c4ad",
+                        "error-container": "#93000a",
+                        "on-surface": "#e1e3e4",
+                        "on-primary-fixed-variant": "#474646",
+                        "secondary": "#c8c6c2",
+                        "platinum": "#D1D5D8",
+                        "on-secondary": "#30312d",
+                        "outline": "#8e9192",
+                        "on-error-container": "#ffdad6",
+                        "on-error": "#690005",
+                        "surface": "#111415",
+                        "primary": "#c9c6c5",
+                        "on-tertiary-fixed-variant": "#504534",
+                        "surface-container-low": "#191c1d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "technical-grid": "8px",
+                        "gutter": "32px",
+                        "section-gap": "160px",
+                        "safe-margin": "80px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "display-xl": ["EB Garamond"],
+                        "headline-lg": ["EB Garamond"],
+                        "headline-lg-mobile": ["EB Garamond"],
+                        "body-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "technical-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.2em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "0.05em", "fontWeight": "300"}],
+                        "display-xl": ["120px", {"lineHeight": "110px", "letterSpacing": "-0.04em", "fontWeight": "400"}],
+                        "headline-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["40px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "32px", "fontWeight": "400"}],
+                        "technical-mono": ["13px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .blueprint-grid { background-image: radial-gradient(circle, #D1D5D8 1px, transparent 1px); background-size: 40px 40px; }
+        .glass-panel { backdrop-filter: blur(20px); background-color: rgba(42, 45, 46, 0.6); }
+        .spotlight { background: radial-gradient(circle at center, #1A1A1A 0%, #0C0C0C 100%); }
+        .ghost-border { border: 1px solid rgba(209, 213, 216, 0.1); }
+    </style>
+</head>
+<body class="bg-obsidian text-on-background font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full bg-graphite/60 backdrop-blur-xl flex justify-between items-center px-gutter py-technical-grid z-50 border-b border-platinum/10">
+<div class="font-display-xl text-headline-md tracking-tighter text-soft-ivory">INFINITY</div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="font-label-caps text-label-caps text-platinum/60 hover:text-soft-ivory transition-colors duration-300" href="#">Residence</a>
+<a class="font-label-caps text-label-caps text-platinum/60 hover:text-soft-ivory transition-colors duration-300" href="#">Mall</a>
+<a class="font-label-caps text-label-caps text-platinum/60 hover:text-soft-ivory transition-colors duration-300" href="#">Amenities</a>
+<a class="font-label-caps text-label-caps text-soft-ivory border-b border-soft-ivory pb-1" href="#">Progress</a>
+<a class="font-label-caps text-label-caps text-platinum/60 hover:text-soft-ivory transition-colors duration-300" href="#">Timeline</a>
+</div>
+<button class="font-label-caps text-label-caps px-6 py-2 border border-soft-ivory text-soft-ivory hover:bg-soft-ivory hover:text-obsidian transition-all duration-300">
+            Request a Call
+        </button>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col justify-center px-safe-margin pt-32 overflow-hidden">
+
+<div class="relative z-10 max-w-6xl">
+<span class="font-technical-mono text-muted-bronze block mb-4 tracking-widest uppercase">Archive 2011—2024</span>
+<h1 class="font-display-xl text-display-xl mb-8 reveal">DELIVERED PROJECTS</h1>
+<p class="font-headline-md text-headline-md max-w-3xl text-platinum/70 reveal" style="transition-delay: 200ms;">
+                A proven portfolio of completed and occupied developments across Islamabad, setting the benchmark for architectural precision and institutional trust.
+            </p>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+<span class="font-technical-mono text-[10px] text-muted-bronze uppercase">Explore Legacy</span>
+<div class="w-[1px] h-20 bg-gradient-to-b from-muted-bronze to-transparent"></div>
+</div>
+</section>
+<!-- Legacy Timeline -->
+<section class="py-section-gap px-safe-margin bg-obsidian relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/3 h-full blueprint-grid opacity-5 pointer-events-none"></div>
+<div class="flex items-end justify-between mb-24 reveal">
+<div>
+<h2 class="font-display-xl text-headline-lg text-soft-ivory">Legacy Roadmap</h2>
+<div class="h-1 w-24 bg-muted-bronze mt-4"></div>
+</div>
+<div class="hidden md:block font-technical-mono text-platinum/30 text-right">
+                CHRONOLOGICAL EXECUTION DATA<br/>VERIFIED BY INFRASTRUCTURE BOARD
+            </div>
+</div>
+<div class="relative">
+<!-- Timeline Main Line -->
+<div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-[1px] bg-platinum/10"></div>
+<div class="space-y-gutter relative">
+<!-- 2011 -->
+<div class="flex flex-col md:flex-row items-center reveal">
+<div class="md:w-1/2 md:text-right md:pr-12 mb-8 md:mb-0">
+<div class="font-display-xl text-headline-lg opacity-20 font-light">2011</div>
+<h3 class="font-headline-md text-headline-md text-soft-ivory">Pine Villas Phase I</h3>
+<p class="text-platinum/60 mt-2 max-w-md ml-auto">The genesis of the Pine Series. Established a new standard for luxury residential living in the capital region.</p>
+</div>
+<div class="z-10 w-4 h-4 rounded-full bg-muted-bronze border-4 border-obsidian"></div>
+<div class="md:w-1/2 md:pl-12"></div>
+</div>
+<!-- 2014 -->
+<div class="flex flex-col md:flex-row items-center reveal" style="transition-delay: 100ms;">
+<div class="md:w-1/2 md:pr-12"></div>
+<div class="z-10 w-4 h-4 rounded-full bg-platinum border-4 border-obsidian"></div>
+<div class="md:w-1/2 md:pl-12 mt-8 md:mt-0">
+<div class="font-display-xl text-headline-lg opacity-20 font-light">2014</div>
+<h3 class="font-headline-md text-headline-md text-soft-ivory">Pine Villas II &amp; Heights</h3>
+<p class="text-platinum/60 mt-2 max-w-md">Concurrent delivery of high-rise luxury and horizontal expansion, doubling the community footprint.</p>
+</div>
+</div>
+<!-- 2018 -->
+<div class="flex flex-col md:flex-row items-center reveal" style="transition-delay: 200ms;">
+<div class="md:w-1/2 md:text-right md:pr-12 mb-8 md:mb-0">
+<div class="font-display-xl text-headline-lg opacity-20 font-light">2018</div>
+<h3 class="font-headline-md text-headline-md text-soft-ivory">Phase III &amp; Rehman Square</h3>
+<p class="text-platinum/60 mt-2 max-w-md ml-auto">Strategic entry into mixed-use commercial hubs, optimizing urban density and accessibility.</p>
+</div>
+<div class="z-10 w-4 h-4 rounded-full bg-platinum border-4 border-obsidian"></div>
+<div class="md:w-1/2 md:pl-12"></div>
+</div>
+<!-- 2019 -->
+<div class="flex flex-col md:flex-row items-center reveal" style="transition-delay: 300ms;">
+<div class="md:w-1/2 md:pr-12"></div>
+<div class="z-10 w-4 h-4 rounded-full bg-muted-bronze border-4 border-obsidian"></div>
+<div class="md:w-1/2 md:pl-12 mt-8 md:mt-0">
+<div class="font-display-xl text-headline-lg opacity-20 font-light">2019</div>
+<h3 class="font-headline-md text-headline-md text-soft-ivory">J7 Mall</h3>
+<p class="text-platinum/60 mt-2 max-w-md">A vertical milestone. One of Islamabad's most recognizable retail destinations delivered ahead of schedule.</p>
+</div>
+</div>
+<!-- 2020-21 -->
+<div class="flex flex-col md:flex-row items-center reveal" style="transition-delay: 400ms;">
+<div class="md:w-1/2 md:text-right md:pr-12 mb-8 md:mb-0">
+<div class="font-display-xl text-headline-lg opacity-20 font-light">2021</div>
+<h3 class="font-headline-md text-headline-md text-soft-ivory">Pine Villas Phase IV</h3>
+<p class="text-platinum/60 mt-2 max-w-md ml-auto">The final jewel in the Pine Series, cementing a decade-long commitment to premium residential occupancy.</p>
+</div>
+<div class="z-10 w-4 h-4 rounded-full bg-platinum border-4 border-obsidian"></div>
+<div class="md:w-1/2 md:pl-12"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Case Studies (Asymmetric Bento) -->
+<section class="py-section-gap px-safe-margin bg-surface-container-lowest">
+<h2 class="font-display-xl text-headline-lg text-center mb-section-gap reveal">Portfolio Case Studies</h2>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter max-w-7xl mx-auto">
+<!-- Pine Heights Luxury Apartments -->
+<div class="md:col-span-8 group relative overflow-hidden ghost-border glass-panel p-10 reveal">
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian to-transparent opacity-60 z-10"></div>
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A cinematic architectural photograph of a high-end luxury apartment complex featuring sleek glass facades and minimalist balconies at dusk. The building is illuminated with soft, warm interior lights that contrast beautifully with the deep obsidian sky. The image emphasizes high-contrast tones, clean geometric lines, and a sense of premium exclusivity and quiet luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHDNBiuKWCTXawBiL3iqv8CSxdx8VO-F6ei1Qmwx_mu2e10hw7K1uGJU397dWrwPEJstcRsGHEKKc1SmCgZ9dFPf6XnX_zUusXHLCsO0ERwmn1Ee89iAjSy9RfDqfZfD5GegAXPe_BhtWC3d3Yec0-hkSQPIfgyRLKFUtKFL9QDJxLfwNxayGNPMlWq_FZ7VY319JndvnfU6s-B24yZgoDWKPSC3zp0ipjvnyXi-e5s-wc-gDKCLJZM88RODMGqtD-AOSd5lDszA"/>
+<div class="relative z-20 h-full flex flex-col justify-end">
+<span class="font-technical-mono text-muted-bronze mb-2">01 / RESIDENTIAL FLAGSHIP</span>
+<h3 class="font-display-xl text-headline-lg text-soft-ivory mb-6">Pine Heights Luxury Apartments</h3>
+<div class="grid grid-cols-3 gap-8">
+<div>
+<span class="block font-technical-mono text-platinum/40 text-[10px] uppercase">Units</span>
+<span class="font-headline-md text-headline-md text-soft-ivory">200+</span>
+</div>
+<div>
+<span class="block font-technical-mono text-platinum/40 text-[10px] uppercase">Area</span>
+<span class="font-headline-md text-headline-md text-soft-ivory">400k<span class="text-sm">SF</span></span>
+</div>
+<div>
+<span class="block font-technical-mono text-platinum/40 text-[10px] uppercase">Status</span>
+<span class="font-headline-md text-headline-md text-soft-ivory">Occupied</span>
+</div>
+</div>
+</div>
+</div>
+<!-- J7 Mall -->
+<div class="md:col-span-4 ghost-border glass-panel p-10 flex flex-col justify-between reveal" style="transition-delay: 150ms;">
+<div>
+<span class="font-technical-mono text-muted-bronze mb-4 block">02 / COMMERCIAL LANDMARK</span>
+<h3 class="font-display-xl text-headline-md text-soft-ivory mb-4">J7 Mall</h3>
+<p class="text-platinum/70 font-body-md">Redefining the commercial landscape with an iconic structure that integrates global retail brands with local business excellence.</p>
+</div>
+<div class="mt-8 border-t border-platinum/10 pt-8">
+<div class="flex items-center gap-4 text-soft-ivory">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-technical-mono">98% Retail Occupancy</span>
+</div>
+</div>
+</div>
+<!-- Rehman Square -->
+<div class="md:col-span-4 ghost-border glass-panel p-10 reveal" style="transition-delay: 200ms;">
+<span class="font-technical-mono text-muted-bronze mb-4 block">03 / MIXED-USE</span>
+<h3 class="font-display-xl text-headline-md text-soft-ivory mb-4">Rehman Square</h3>
+<p class="text-platinum/70 mb-8">Speed and precision. Delivered in record time, Rehman Square serves as a vital community hub for dining and professional services.</p>
+<div class="h-40 w-full spotlight relative overflow-hidden">
+<div class="absolute inset-0 blueprint-grid opacity-20"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-muted-bronze text-4xl" data-weight="fill">architecture</span>
+</div>
+</div>
+</div>
+<!-- Pine Villas Series -->
+<div class="md:col-span-8 group relative overflow-hidden ghost-border glass-panel p-10 reveal" style="transition-delay: 250ms;">
+<div class="absolute inset-0 bg-gradient-to-r from-obsidian via-obsidian/80 to-transparent z-10"></div>
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" data-alt="A panoramic view of an expansive, luxury villa community with symmetrical modern architecture and perfectly manicured landscapes. The scene is captured during the blue hour, with glowing exterior facade lighting that highlights the platinum and graphite color scheme. The composition is expansive and atmospheric, reflecting a decade of architectural evolution and trust." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAthHPFXieOJeTs1Xbl7SoGLToF92SUDE-9v8Z048QUAhwrbps1CFFYXIMmKIK3uPpWrXhK88Q4c1Z2KFGCyKcDUhsdOShwRJ-AGz56BvaoeLH11kQ-pi8nlD8slpl7aS4aC_RsQ3a9ioyvFgSlvuB9u7809qOs66OU29Ip5Hixi_nbgr7e4Gq9z48uA0veHNFKDJ-DjTAMggAMkIh2uf5s5qbQQO7u36Ba54WG5pIgOdyOpopSe8j9kQNMaDNVNaxuk2-rqHiGrg"/>
+<div class="relative z-20 h-full flex flex-col justify-center max-w-lg">
+<span class="font-technical-mono text-muted-bronze mb-2">04 / EVOLUTIONARY TRUST</span>
+<h3 class="font-display-xl text-headline-lg text-soft-ivory mb-4">Pine Villas Series I-IV</h3>
+<p class="text-platinum/70 font-body-md mb-8">Four phases. One singular vision. The Pine Villas series represents our unwavering commitment to creating sustainable, secure, and prestigious gated communities over the last 13 years.</p>
+<div class="flex gap-4">
+<div class="px-4 py-2 border border-platinum/20 text-platinum text-[10px] font-technical-mono uppercase">2011-2021</div>
+<div class="px-4 py-2 border border-platinum/20 text-platinum text-[10px] font-technical-mono uppercase">1,200+ Residents</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Closing -->
+<section class="py-section-gap px-safe-margin bg-obsidian relative">
+<div class="max-w-4xl mx-auto text-center reveal">
+<span class="material-symbols-outlined text-muted-bronze text-5xl mb-8" data-weight="fill">verified_user</span>
+<h2 class="font-display-xl text-headline-lg text-soft-ivory mb-12">Our delivered portfolio reflects a consistent commitment to planning, execution, occupancy, and long-term value.</h2>
+<div class="w-full h-[1px] bg-gradient-to-r from-transparent via-platinum/20 to-transparent mb-12"></div>
+<button class="font-label-caps text-label-caps px-12 py-5 border border-soft-ivory text-soft-ivory hover:bg-soft-ivory hover:text-obsidian transition-all duration-500">
+                Schedule a Private Tour
+            </button>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-obsidian border-t border-muted-bronze/20 w-full py-section-gap px-safe-margin">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-4">
+<div class="font-display-xl text-headline-lg text-soft-ivory mb-6">INFINITY</div>
+<p class="font-body-md text-platinum/70 max-w-sm">Architectural excellence and investment precision at the heart of Islamabad's evolution.</p>
+</div>
+<div class="md:col-span-2">
+<h4 class="font-label-caps text-label-caps text-soft-ivory mb-6">Portfolio</h4>
+<div class="flex flex-col gap-3 font-body-md text-platinum/70">
+<a class="hover:text-soft-ivory transition-colors" href="#">Residence</a>
+<a class="hover:text-soft-ivory transition-colors" href="#">Mall</a>
+<a class="hover:text-soft-ivory transition-colors" href="#">Amenities</a>
+</div>
+</div>
+<div class="md:col-span-2">
+<h4 class="font-label-caps text-label-caps text-soft-ivory mb-6">Company</h4>
+<div class="flex flex-col gap-3 font-body-md text-platinum/70">
+<a class="hover:text-soft-ivory transition-colors" href="#">Progress</a>
+<a class="hover:text-soft-ivory transition-colors" href="#">Timeline</a>
+<a class="hover:text-soft-ivory transition-colors" href="#">Privacy Policy</a>
+</div>
+</div>
+<div class="md:col-span-4 text-right">
+<h4 class="font-label-caps text-label-caps text-soft-ivory mb-6">Location</h4>
+<p class="font-body-md text-platinum/70">Global HQ: 1200 Obsidian Plaza, NYC</p>
+<div class="mt-12 flex justify-end gap-6 text-platinum/50">
+<span class="material-symbols-outlined cursor-pointer hover:text-soft-ivory">language</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-soft-ivory">share</span>
+</div>
+</div>
+</div>
+<div class="mt-24 pt-8 border-t border-platinum/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-technical-mono text-[11px] text-platinum/40 uppercase">© 2024 Infinity Mall &amp; Residence. Architectural Excellence.</span>
+<span class="font-technical-mono text-[11px] text-platinum/40 uppercase">Registration No: INF-8842-ISL</span>
+</div>
+</footer>
+<script>
+        // Scroll Reveal Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Subtle parallax or smooth interactions could go here
+        window.addEventListener('scroll', () => {
+            const scroll = window.pageYOffset;
+            const heroText = document.querySelector('h1');
+            if(heroText) {
+                heroText.style.transform = `translateY(${scroll * 0.2}px)`;
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us | INFINITY MALL & RESIDENCE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Hanken+Grotesk:wght@300;400;600&family=JetBrains+Mono:wght@400&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@100..900&family=Hanken+Grotesk:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "platinum": "#D1D5D8",
+                        "on-surface-variant": "#c4c7c7",
+                        "on-primary-fixed": "#1c1b1b",
+                        "error": "#ffb4ab",
+                        "tertiary": "#d5c4ad",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "surface-container-high": "#272a2b",
+                        "surface-variant": "#323536",
+                        "inverse-primary": "#5f5e5e",
+                        "on-secondary-fixed-variant": "#474743",
+                        "primary-fixed": "#e5e2e1",
+                        "surface-tint": "#c9c6c5",
+                        "surface-bright": "#373a3b",
+                        "tertiary-container": "#120b02",
+                        "surface-container-low": "#191c1d",
+                        "primary": "#c9c6c5",
+                        "inverse-on-surface": "#2e3132",
+                        "on-secondary": "#30312d",
+                        "on-secondary-fixed": "#1b1c19",
+                        "on-tertiary": "#392f1f",
+                        "surface-container": "#1d2021",
+                        "on-primary": "#313030",
+                        "outline": "#8e9192",
+                        "surface-dim": "#111415",
+                        "surface": "#111415",
+                        "secondary-container": "#474743",
+                        "emerald-accent": "#062E27",
+                        "secondary-fixed-dim": "#c8c6c2",
+                        "on-tertiary-fixed": "#231a0c",
+                        "secondary": "#c8c6c2",
+                        "background": "#111415",
+                        "outline-variant": "#444748",
+                        "tertiary-fixed-dim": "#d5c4ad",
+                        "muted-bronze": "#8C7E6A",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-lowest": "#0c0f10",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#f2e0c8",
+                        "primary-container": "#0c0c0c",
+                        "surface-container-highest": "#323536",
+                        "on-primary-container": "#7b7a79",
+                        "on-background": "#e1e3e4",
+                        "graphite": "#2A2D2E",
+                        "on-secondary-container": "#b6b5b0",
+                        "inverse-surface": "#e1e3e4",
+                        "secondary-fixed": "#e4e2dd",
+                        "on-tertiary-container": "#867865",
+                        "obsidian": "#0C0C0C",
+                        "on-tertiary-fixed-variant": "#504534",
+                        "on-error": "#690005",
+                        "on-surface": "#e1e3e4",
+                        "on-primary-fixed-variant": "#474646",
+                        "soft-ivory": "#E8E6E1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "safe-margin": "80px",
+                        "section-gap": "160px",
+                        "gutter": "32px",
+                        "technical-grid": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["EB Garamond"],
+                        "display-xl": ["EB Garamond"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "technical-mono": ["JetBrains Mono"],
+                        "headline-lg": ["EB Garamond"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-caps": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["40px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "display-xl": ["120px", {"lineHeight": "110px", "letterSpacing": "-0.04em", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "0.05em", "fontWeight": "300"}],
+                        "body-md": ["16px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "technical-mono": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "32px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.2em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0C0C0C;
+            color: #D1D5D8;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(42, 45, 46, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(209, 213, 216, 0.1);
+        }
+        .blueprint-grid {
+            background-image: radial-gradient(rgba(140, 126, 106, 0.15) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .spotlight-gradient {
+            background: radial-gradient(circle at center, #1A1A1A 0%, #0C0C0C 100%);
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-obsidian/80 backdrop-blur-xl border-b border-platinum/10 transition-all duration-500 ease-in-out">
+<div class="flex justify-between items-center px-safe-margin py-6 w-full mx-auto">
+<div class="font-headline-md text-headline-md tracking-widest text-soft-ivory">INFINITY</div>
+<div class="hidden md:flex items-center space-x-12">
+<a class="font-label-caps text-label-caps text-platinum/60 hover:text-soft-ivory transition-colors duration-300" href="#">Residence</a>
+<a class="font-label-caps text-label-caps text-platinum/60 hover:text-soft-ivory transition-colors duration-300" href="#">Mall</a>
+<a class="font-label-caps text-label-caps text-platinum/60 hover:text-soft-ivory transition-colors duration-300" href="#">Amenities</a>
+<a class="font-label-caps text-label-caps text-platinum/60 hover:text-soft-ivory transition-colors duration-300" href="#">Progress</a>
+<a class="font-label-caps text-label-caps text-platinum/60 hover:text-soft-ivory transition-colors duration-300" href="#">Timeline</a>
+</div>
+<button class="border border-soft-ivory px-8 py-3 font-label-caps text-label-caps text-soft-ivory hover:bg-soft-ivory hover:text-obsidian transition-all duration-300">
+                Request a Call
+            </button>
+</div>
+</nav>
+<main class="w-full">
+<!-- Hero Section -->
+<section class="relative min-h-screen pt-40 pb-section-gap flex flex-col justify-end px-safe-margin spotlight-gradient">
+<div class="absolute top-0 right-0 w-full h-full opacity-30 blueprint-grid pointer-events-none"></div>
+<div class="grid grid-cols-12 gap-gutter relative z-10 items-end">
+<div class="col-span-12 md:col-span-7 mb-12 md:mb-0">
+<span class="font-technical-mono text-technical-mono text-muted-bronze mb-4 block tracking-widest">ESTABLISHED 2024</span>
+<h1 class="font-display-xl text-[80px] md:text-display-xl text-soft-ivory leading-none mb-12">ABOUT US</h1>
+<div class="max-w-2xl">
+<p class="font-body-lg text-body-lg text-platinum/80 leading-relaxed">
+                            Infinity Mall & Residence is not merely a structure; it is a manifestation of architectural precision and uncompromising luxury. Located in the heart of Islamabad, we redefine the horizon of modern living through sophisticated design and unparalleled retail experiences.
+                        </p>
+</div>
+</div>
+<div class="col-span-12 md:col-span-5 relative group">
+<div class="aspect-[3/4] w-full overflow-hidden border border-platinum/10">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A cinematic architectural shot of a modern glass skyscraper reflecting a moody dramatic sunset sky. The building features sharp geometric angles and pristine glass panels, representing the pinnacle of luxury architectural design and engineering. The atmosphere is quiet, expensive, and sophisticated, with deep shadows and soft highlights highlighting the structure's textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdPj0Q97twkUi8s76zzGqx09XT-dni0Z8IXlFF_EzHSLMNmFrqdtO9jUsFyEmsICzP6ln5p_WX-rM3hFzPLW6IcUyAec2Q4YH2tzVmbCJir-Cyp8BFFEbUUKa_kqn6adr6nqV6uNKnMH4J9ZTxi47iKv4O8oH87gIK2lHK8j9gfL_Hah1g38tmlBGqox-wsldrC5D427kZoB5MV12t44o0nhuuu2K3MQiuPm7BLdetuBJuWxjQUZ2rDZTeNjQG9EV4vE0un7Vk3A"/>
+</div>
+<div class="absolute -bottom-8 -left-8 bg-obsidian border border-platinum/10 p-8 hidden md:block">
+<ul class="space-y-4">
+<li class="flex items-center space-x-4">
+<span class="w-8 h-px bg-muted-bronze"></span>
+<span class="font-label-caps text-label-caps text-soft-ivory">LUXURY SHOPPING</span>
+</li>
+<li class="flex items-center space-x-4">
+<span class="w-8 h-px bg-muted-bronze"></span>
+<span class="font-label-caps text-label-caps text-soft-ivory">GREAT FOOD</span>
+</li>
+<li class="flex items-center space-x-4">
+<span class="w-8 h-px bg-muted-bronze"></span>
+<span class="font-label-caps text-label-caps text-soft-ivory">ENTERTAINMENT</span>
+</li>
+<li class="flex items-center space-x-4">
+<span class="w-8 h-px bg-muted-bronze"></span>
+<span class="font-label-caps text-label-caps text-soft-ivory">SMART INVESTMENT</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Infinity Mall -->
+<section class="py-section-gap px-safe-margin bg-obsidian relative">
+<div class="absolute left-1/2 top-0 h-full w-px bg-platinum/10 hidden md:block"></div>
+<div class="mb-24">
+<span class="font-technical-mono text-technical-mono text-muted-bronze mb-4 block">CORE VALUE PROPOSITION</span>
+<h2 class="font-headline-lg text-headline-lg text-soft-ivory">ENGINEERING EXCELLENCE</h2>
+</div>
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Card 1 -->
+<div class="col-span-12 md:col-span-6 glass-panel p-12 mb-gutter md:mb-0 reveal-on-scroll">
+<span class="font-display-xl text-4xl text-muted-bronze/30 mb-8 block">01</span>
+<h3 class="font-headline-md text-headline-md text-soft-ivory mb-6">Best Mix of Shopping</h3>
+<p class="font-body-md text-body-md text-platinum/60 mb-12">Curating a selection of global flagship stores and local artisan boutiques to create a retail ecosystem that caters to the discerning few.</p>
+<div class="h-px w-full bg-platinum/10"></div>
+</div>
+<!-- Card 2 -->
+<div class="col-span-12 md:col-span-5 md:offset-1 glass-panel p-12 mt-0 md:mt-24 reveal-on-scroll">
+<span class="font-display-xl text-4xl text-muted-bronze/30 mb-8 block">02</span>
+<h3 class="font-headline-md text-headline-md text-soft-ivory mb-6">High-end Experience</h3>
+<p class="font-body-md text-body-md text-platinum/60 mb-12">From valet services to private lounges, every touchpoint is designed to evoke a sense of quiet luxury and absolute comfort.</p>
+<div class="h-px w-full bg-platinum/10"></div>
+</div>
+<!-- Card 3 -->
+<div class="col-span-12 md:col-span-5 glass-panel p-12 mb-gutter md:mb-0 reveal-on-scroll">
+<span class="font-display-xl text-4xl text-muted-bronze/30 mb-8 block">03</span>
+<h3 class="font-headline-md text-headline-md text-soft-ivory mb-6">Prime Location</h3>
+<p class="font-body-md text-body-md text-platinum/60 mb-12">Situated at the epicenter of Islamabad's growth corridor, offering unrivaled accessibility and prestige.</p>
+<div class="h-px w-full bg-platinum/10"></div>
+</div>
+<!-- Card 4 -->
+<div class="col-span-12 md:col-span-6 glass-panel p-12 mt-0 md:mt-32 reveal-on-scroll">
+<span class="font-display-xl text-4xl text-muted-bronze/30 mb-8 block">04</span>
+<h3 class="font-headline-md text-headline-md text-soft-ivory mb-6">Future Growth</h3>
+<p class="font-body-md text-body-md text-platinum/60 mb-12">An investment designed for longevity, blending sustainable technology with architectural design that will define the city's future.</p>
+<div class="h-px w-full bg-platinum/10"></div>
+</div>
+</div>
+</section>
+<!-- Leadership Showcase -->
+<section class="py-section-gap px-safe-margin bg-obsidian">
+<div class="mb-32 flex justify-between items-end">
+<div>
+<span class="font-technical-mono text-technical-mono text-muted-bronze mb-4 block">EXECUTIVE BOARD</span>
+<h2 class="font-headline-lg text-headline-lg text-soft-ivory">THE VISIONARIES</h2>
+</div>
+<div class="hidden md:block">
+<p class="font-body-md text-body-md text-platinum/40 max-w-xs text-right">Architectural prowess led by decades of collective industry excellence.</p>
+</div>
+</div>
+<div class="space-y-40">
+<!-- Leader 1 -->
+<div class="grid grid-cols-12 gap-gutter items-center reveal-on-scroll">
+<div class="col-span-12 md:col-span-5 aspect-[4/5] relative">
+<img class="w-full h-full object-cover grayscale" data-alt="A sophisticated black and white portrait of an executive male in a tailored suit, looking thoughtfully away from the camera. The lighting is dramatic and editorial, characteristic of a high-end business magazine. The background is a blurred architectural space, emphasizing the subject's professional authority and calm demeanor. The overall mood is serious, successful, and visionary." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl6711XAgQ4YXus2FjzLIs6HlfmqOt9eKWQ8yVjLWJ34VQ4w0ZR-QX-u4CtNaZmrJk77CyhKXfWmhHgm3m8WYY3eQfqAfik2yfqKqdCM41m9JeKIROOsY9VzbtHRYXpZIcKjOv2WKJmOaQHNWMKdrDOH0MesITPZQYU6kdnAw3MdE4ygmweNARCqYV-j4en0Yv2CfMrvH0ATP1NO69NIHD-x5ViMhnpM3RPbVdXNQIBDAU9q-4Agxbr5ejgvwViA9x77jPsgmE5w"/>
+<div class="absolute -right-8 top-1/2 -translate-y-1/2 hidden md:block">
+<span class="vertical-text font-technical-mono text-[10px] tracking-[0.5em] text-platinum/30">EXECUTIVE CHAIR</span>
+</div>
+</div>
+<div class="col-span-12 md:col-span-6 md:offset-1">
+<h4 class="font-label-caps text-label-caps text-muted-bronze mb-2">CHAIRMAN</h4>
+<h3 class="font-headline-lg text-headline-lg text-soft-ivory mb-8">Mr. Maqbool Hussain</h3>
+<blockquote class="font-display-xl text-3xl md:text-5xl text-platinum leading-tight italic mb-8">
+                            "Infinity is not a destination, but a standard of excellence we uphold in every square foot of our vision."
+                        </blockquote>
+<div class="h-px w-24 bg-muted-bronze"></div>
+</div>
+</div>
+<!-- Leader 2 -->
+<div class="grid grid-cols-12 gap-gutter items-center reveal-on-scroll">
+<div class="col-span-12 md:col-span-6 order-2 md:order-1">
+<h4 class="font-label-caps text-label-caps text-muted-bronze mb-2">MANAGING DIRECTOR</h4>
+<h3 class="font-headline-lg text-headline-lg text-soft-ivory mb-8">Mr. Salman Shahid</h3>
+<blockquote class="font-display-xl text-3xl md:text-5xl text-platinum leading-tight italic mb-8">
+                            "We bridge the gap between engineering possibility and lifestyle reality."
+                        </blockquote>
+<div class="h-px w-24 bg-muted-bronze"></div>
+</div>
+<div class="col-span-12 md:col-span-5 md:offset-1 order-1 md:order-2 aspect-[4/5] relative">
+<img class="w-full h-full object-cover grayscale" data-alt="A cinematic, low-angle portrait of a professional male executive standing against a minimalist modern concrete wall. Soft light hits one side of his face, creating a strong sense of character and depth. He wears a dark, modern textured blazer. The aesthetic is clean, luxurious, and authoritative, matching the editorial style of an elite architectural firm's leadership profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8fOesXylrAmULRd4vbP_ZSB2fZ3opEInv3NI5PeT1zOXIPr85Ot6nEyDMKLsAjvjx13IV9dfsEPGYNRHCszlfk5vuiO7MqewJV3_cw5EYZeu3Q0jG-1pg55RIfkOjQBwuwNwbWDWWad6zf40SB0iV0blYUAaQVGJzbNDERDQhhRfcQlL0y6dQ7dejfEphQO-0PJE4Ei4N1iRmFb7hHkC3VGYhMcvRGdA8CWLxg8b1x6BPcqTm86IDgu3fanjxZ7kDVm7Y4HMlbw"/>
+</div>
+</div>
+<!-- Leader 3 -->
+<div class="grid grid-cols-12 gap-gutter items-center reveal-on-scroll">
+<div class="col-span-12 md:col-span-5 aspect-[4/5] relative">
+<img class="w-full h-full object-cover grayscale" data-alt="An editorial close-up portrait of a male executive with a confident, slight smile, set against a dark, moody background. He is wearing high-end spectacles and a crisp white shirt under a charcoal wool coat. The lighting is focused and artistic, highlighting facial details and conveying a sense of intellectual brilliance and strategic foresight. The image is rendered in high-contrast black and white for a timeless luxury feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-UNGfrvPotBBTh79cmi3wyQgDdDRDUpLLgL5bGovs0F6rjkmlzXep4HdYV-JRcSykUFBLNra3dp3v3a-GMcHoJjIpe8gPQtwAOdgHO-zHoMbPxLshuc7w9bzxW00oZIXAM8jEOLfx5D7Zp_PDf3VPisVWbG2n4Q4bbeUjVfV73SvRcBgiYSIO2y7fRKlanSfucu6XaHll3521RCCi0BnIIUE0xbwwsaJSr-0Whux7_ZuRybm4HC397LVs_S6kzfatFJJZEl1xaA"/>
+</div>
+<div class="col-span-12 md:col-span-6 md:offset-1">
+<h4 class="font-label-caps text-label-caps text-muted-bronze mb-2">CHIEF ARCHITECT</h4>
+<h3 class="font-headline-lg text-headline-lg text-soft-ivory mb-8">Mr. Dr Syed Ateeq Zaman</h3>
+<blockquote class="font-display-xl text-3xl md:text-5xl text-platinum leading-tight italic mb-8">
+                            "Design is the silent ambassador of our brand's relentless pursuit of perfection."
+                        </blockquote>
+<div class="h-px w-24 bg-muted-bronze"></div>
+</div>
+</div>
+<!-- Remaining Leaders (Compact Grid) -->
+<div class="grid grid-cols-12 gap-gutter">
+<div class="col-span-12 md:col-span-6 reveal-on-scroll">
+<div class="aspect-square mb-8 overflow-hidden">
+<img class="w-full h-full object-cover grayscale" data-alt="A striking portrait of a male professional in a minimalist setting. He is wearing a dark navy suit and looking directly into the lens with a piercing, professional gaze. The photography uses shallow depth of field and soft lighting to create an intimate yet powerful executive profile. The mood is one of focused determination and executive leadership in a global business context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPClhp_KlVmUNqS--KxoVqSYBKLuVZPPS5o8f_52ueaxVx1OBm0vGlAmUpirqtUBvnx9-gGI3Lepsro3eFfdnM8hyxvOhrTp9KNFng9RkSVButU4Fy3LlRIJ2GfUWZjKEML2ENWSeVii4oTqfJ_SLW_uaBbnuocmP7sNdH3iG0ECIui0sZd-PXZ1A5X4U9xQhQQm0W8sTn4mJ55EGK229V9tPA2PeYjmcAFYN35jlmCQCezW_PzqghSiWr3Rba3ZiB9Hh3Af2TCg"/>
+</div>
+<h4 class="font-label-caps text-label-caps text-muted-bronze mb-2">EXECUTIVE DIRECTOR</h4>
+<h3 class="font-headline-md text-headline-md text-soft-ivory">Mr. Safdar Zaman</h3>
+</div>
+<div class="col-span-12 md:col-span-6 reveal-on-scroll">
+<div class="aspect-square mb-8 overflow-hidden">
+<img class="w-full h-full object-cover grayscale" data-alt="A high-fashion inspired corporate portrait of a male executive in a sleek, modern black turtleneck. The lighting is inspired by studio gallery photography, casting soft shadows across the face and emphasizing the minimalist aesthetic. The background is a solid, deep grey, keeping all focus on the subject's composed and forward-thinking expression. This image reflects a modern, innovative approach to leadership." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe0_T2Gw_ey1E7gY9r7FHXOgZyOEqwSES0HGNftj5k8zHE-WqQcjnHk6YUvP7MvMdnsMiuyj1pI45jwQGAMZcc9IFKWY-OAxWK1sNOnT5AvrzP-r0jBAgYCoOFkBKFQMmYZQ_Y1ZCQWKh_nPJs-T7Kqd4CH1wjCB_wJrclFSeH9hWDnKqTTf-kgS_mibVdL02a0sT4wq3acwXcYI0VUIA5jE6Sc0m_Cal-thoylx-OrlsZawwo7mrFrMANz-t418I26jpgW5mw5Q"/>
+</div>
+<h4 class="font-label-caps text-label-caps text-muted-bronze mb-2">DIRECTOR OPERATIONS</h4>
+<h3 class="font-headline-md text-headline-md text-soft-ivory">Syed Laeeq Zaman</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- Closing Statement -->
+<section class="py-section-gap px-safe-margin bg-obsidian relative overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full opacity-20 blueprint-grid"></div>
+</div>
+<div class="relative z-10 text-center max-w-5xl mx-auto py-20 border-y border-platinum/10">
+<span class="font-label-caps text-label-caps text-muted-bronze mb-8 block">THE INFINITY LEGACY</span>
+<h2 class="font-headline-lg text-headline-lg md:text-[80px] text-soft-ivory mb-12 leading-tight">A LANDMARK FOR GENERATIONS</h2>
+<p class="font-body-lg text-body-lg text-platinum/60 max-w-2xl mx-auto mb-16">
+                    We are building more than a mall. We are constructing a timeless icon of Islamabad's evolution, where architectural daring meets the pinnacle of human experience.
+                </p>
+<button class="px-12 py-5 border border-platinum text-label-caps text-label-caps text-soft-ivory hover:bg-soft-ivory hover:text-obsidian transition-all duration-500">
+                    JOIN THE JOURNEY
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-obsidian border-t border-platinum/10 relative w-full pt-section-gap pb-technical-grid px-safe-margin">
+<div class="grid grid-cols-12 gap-gutter max-w-full">
+<div class="col-span-12 md:col-span-4 mb-12 md:mb-0">
+<div class="font-headline-lg text-headline-lg text-soft-ivory opacity-20 mb-8">INFINITY</div>
+<p class="font-body-md text-body-md text-platinum/50 max-w-xs">Islamabad's premier destination for luxury living and iconic retail experiences.</p>
+</div>
+<div class="col-span-6 md:col-span-2">
+<h4 class="font-label-caps text-label-caps text-soft-ivory mb-6">EXPLORE</h4>
+<ul class="space-y-3">
+<li><a class="font-label-caps text-label-caps text-platinum/50 hover:text-muted-bronze transition-colors duration-200" href="#">The Residence</a></li>
+<li><a class="font-label-caps text-label-caps text-platinum/50 hover:text-muted-bronze transition-colors duration-200" href="#">The Mall</a></li>
+<li><a class="font-label-caps text-label-caps text-platinum/50 hover:text-muted-bronze transition-colors duration-200" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div class="col-span-6 md:col-span-2">
+<h4 class="font-label-caps text-label-caps text-soft-ivory mb-6">COMPANY</h4>
+<ul class="space-y-3">
+<li><a class="font-label-caps text-label-caps text-platinum/50 hover:text-muted-bronze transition-colors duration-200" href="#">Investors</a></li>
+<li><a class="font-label-caps text-label-caps text-platinum/50 hover:text-muted-bronze transition-colors duration-200" href="#">Booking Office</a></li>
+<li><a class="font-label-caps text-label-caps text-platinum/50 hover:text-muted-bronze transition-colors duration-200" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="col-span-12 md:col-span-4 mt-12 md:mt-0">
+<h4 class="font-label-caps text-label-caps text-soft-ivory mb-6">NEWSLETTER</h4>
+<div class="flex border-b border-platinum/30 pb-2">
+<input class="bg-transparent border-none focus:ring-0 w-full text-platinum placeholder:text-platinum/30 font-technical-mono text-technical-mono" placeholder="Email Address" type="email"/>
+<button class="text-platinum hover:text-muted-bronze transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-32 pt-8 border-t border-platinum/5 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+<p class="font-label-caps text-[10px] text-platinum/30 tracking-widest uppercase">© 2024 INFINITY MALL & RESIDENCE. ARCHITECTURAL EXCELLENCE DEFINED.</p>
+<div class="flex space-x-6">
+<a class="text-platinum/30 hover:text-soft-ivory transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-platinum/30 hover:text-soft-ivory transition-colors" href="#"><span class="material-symbols-outlined">language</span></a>
+</div>
+</div>
+</footer>
+<script>
+        // Reveal elements on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+        // Parallax effect for blueprint grids
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.pageYOffset;
+            document.querySelectorAll('.blueprint-grid').forEach(grid => {
+                grid.style.transform = `translateY(${scrollPos * 0.1}px)`;
+            });
+        });
+
+        // Navbar interaction
+        let lastScroll = 0;
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 50) {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-6');
+                nav.classList.add('bg-obsidian/95');
+            } else {
+                nav.classList.add('py-6');
+                nav.classList.remove('py-4');
+                nav.classList.remove('bg-obsidian/95');
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body></html>
