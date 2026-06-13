@@ -1,6 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 
 /**
  * Premium full-screen brand loader.
@@ -10,100 +17,130 @@ import { useCallback, useEffect, useRef, useState } from "react";
  * first paint, before React hydrates, and stays smooth even while the page's
  * heavy assets (video, images, fonts) are still downloading.
  *
- * Dismissal rules:
- *  - waits until the window `load` event AND `document.fonts.ready`, and
- *  - always plays the full draw at least once (MIN_VISIBLE), even on a warm
- *    cache, and
- *  - force-dismisses after MAX_VISIBLE as a safety net so a user is never stuck.
+ * It runs:
+ *  - on the initial / hard load of any page — waits for the window `load` event
+ *    AND `document.fonts.ready`, with a minimum on-screen time so the full draw
+ *    always plays at least once (even on a warm cache); and
+ *  - on every in-site navigation — replays a slightly quicker version, covering
+ *    the incoming route before it paints so the transition feels branded.
+ *
+ * A hard cap force-dismisses the loader if `load` never fires, so a user is
+ * never stuck.
  */
 
-const MIN_VISIBLE = 2200; // ms — guarantees one full draw + a brief hold
+const FIRST_MIN = 2200; // ms — cold load: guarantees a full draw + brief hold
+const NAV_MIN = 1600; // ms — in-site navigation: just enough for one draw
 const MAX_VISIBLE = 9000; // ms — hard safety cap if `load` never fires
 const EXIT_DURATION = 900; // ms — must match the CSS exit transition
 
+// useLayoutEffect warns during SSR; fall back to useEffect on the server.
+const useIsoLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
 export default function Loader() {
-  const [mounted, setMounted] = useState(true);
+  const pathname = usePathname();
+
+  const [visible, setVisible] = useState(true);
   const [exiting, setExiting] = useState(false);
   const [progress, setProgress] = useState(6);
+  const [runId, setRunId] = useState(0);
 
-  const startRef = useRef<number>(Date.now());
+  const firstRunStarted = useRef(false);
   const rafRef = useRef<number | undefined>(undefined);
+  const timersRef = useRef<number[]>([]);
+  const assetsReadyRef = useRef(false);
+  const exitingRef = useRef(false);
 
-  const beginExit = useCallback(() => {
-    setExiting((already) => {
-      if (already) return already;
-      // Snap the bar to 100% as the curtain lifts.
-      setProgress(100);
-      window.setTimeout(() => setMounted(false), EXIT_DURATION);
-      return true;
-    });
+  const clearTimers = useCallback(() => {
+    timersRef.current.forEach((t) => window.clearTimeout(t));
+    timersRef.current = [];
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
   }, []);
 
-  useEffect(() => {
-    startRef.current = Date.now();
-    let assetsReady = false;
+  const beginExit = useCallback(() => {
+    if (exitingRef.current) return;
+    exitingRef.current = true;
+    setExiting(true);
+    setProgress(100);
+    document.body.style.overflow = ""; // restore scroll the moment we commit
+    const t = window.setTimeout(() => setVisible(false), EXIT_DURATION);
+    timersRef.current.push(t);
+  }, []);
 
-    // ── Determinate-ish progress: ease toward 90% while loading ──────────
-    const tick = () => {
-      setProgress((p) => {
-        const target = assetsReady ? 96 : 90;
-        if (p >= target) return p;
-        // Ease-out: faster at first, slowing as it approaches the target.
-        return p + Math.max(0.4, (target - p) * 0.018);
-      });
+  const startRun = useCallback(
+    (mode: "initial" | "nav") => {
+      clearTimers();
+      exitingRef.current = false;
+      assetsReadyRef.current = false;
+      const startedAt = Date.now();
+      const minVisible = mode === "initial" ? FIRST_MIN : NAV_MIN;
+
+      setExiting(false);
+      setProgress(6);
+      setVisible(true);
+      // Bump the key on navigation so the CSS draw restarts cleanly; the initial
+      // run keeps key 0 so the pre-hydration draw continues without a jump.
+      if (mode === "nav") setRunId((n) => n + 1);
+      document.body.style.overflow = "hidden";
+
+      // Determinate-ish progress: ease toward the target, faster at first.
+      const tick = () => {
+        setProgress((p) => {
+          const target = assetsReadyRef.current ? 96 : 90;
+          if (p >= target) return p;
+          return p + Math.max(0.4, (target - p) * 0.02);
+        });
+        rafRef.current = requestAnimationFrame(tick);
+      };
       rafRef.current = requestAnimationFrame(tick);
-    };
-    rafRef.current = requestAnimationFrame(tick);
 
-    // ── Decide when we're allowed to leave ───────────────────────────────
-    const tryExit = () => {
-      const elapsed = Date.now() - startRef.current;
-      const wait = Math.max(0, MIN_VISIBLE - elapsed);
-      window.setTimeout(beginExit, wait);
-    };
+      const tryExit = () => {
+        const wait = Math.max(0, minVisible - (Date.now() - startedAt));
+        timersRef.current.push(window.setTimeout(beginExit, wait));
+      };
 
-    const onAssetsReady = () => {
-      if (assetsReady) return;
-      assetsReady = true;
-      tryExit();
-    };
+      const onReady = () => {
+        if (assetsReadyRef.current) return;
+        assetsReadyRef.current = true;
+        tryExit();
+      };
 
-    // window `load` = all images / video / iframes have finished.
-    const whenLoaded =
-      document.readyState === "complete"
-        ? Promise.resolve()
-        : new Promise<void>((resolve) =>
-            window.addEventListener("load", () => resolve(), { once: true }),
-          );
+      // On a cold load, wait for everything; on navigation `readyState` is
+      // already "complete", so dismissal is governed purely by NAV_MIN.
+      const whenLoaded =
+        document.readyState === "complete"
+          ? Promise.resolve()
+          : new Promise<void>((resolve) =>
+              window.addEventListener("load", () => resolve(), { once: true }),
+            );
+      const whenFonts = document.fonts?.ready ?? Promise.resolve();
+      Promise.all([whenLoaded, whenFonts]).then(onReady);
 
-    // Fonts settle independently of `load`.
-    const whenFonts = document.fonts?.ready ?? Promise.resolve();
+      timersRef.current.push(window.setTimeout(beginExit, MAX_VISIBLE));
+    },
+    [beginExit, clearTimers],
+  );
 
-    Promise.all([whenLoaded, whenFonts]).then(onAssetsReady);
+  // Kick off a run on first mount and on every route change.
+  useIsoLayoutEffect(() => {
+    startRun(firstRunStarted.current ? "nav" : "initial");
+    firstRunStarted.current = true;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]);
 
-    // Safety net.
-    const hardCap = window.setTimeout(beginExit, MAX_VISIBLE);
+  useEffect(
+    () => () => {
+      clearTimers();
+      document.body.style.overflow = "";
+    },
+    [clearTimers],
+  );
 
-    // Lock scroll while the loader owns the screen.
-    const { overflow } = document.body.style;
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      window.clearTimeout(hardCap);
-      document.body.style.overflow = overflow;
-    };
-  }, [beginExit]);
-
-  // Restore scroll the moment we commit to leaving (don't wait for unmount).
-  useEffect(() => {
-    if (exiting) document.body.style.overflow = "";
-  }, [exiting]);
-
-  if (!mounted) return null;
+  if (!visible) return null;
 
   return (
     <div
+      key={runId}
       className={`loader${exiting ? " loader--exit" : ""}`}
       role="progressbar"
       aria-label="Loading Infinity Mall & Residence"
