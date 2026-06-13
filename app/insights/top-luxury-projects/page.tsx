@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import DevLink from "@/components/DevLink";
 import InnerPageHero from "@/components/InnerPageHero";
 
 export const metadata: Metadata = {
@@ -396,7 +397,7 @@ export default function TopLuxuryProjectsPage() {
         {/* Previous / Next */}
         <section className="border-t border-platinum/10" aria-label="Article navigation">
           <div className="bento-grid bento-grid--editorial-nav">
-            <a
+            <DevLink
               className="editorial-nav-card editorial-nav-card--prev group"
               href={PREV_ARTICLE.href}
             >
@@ -412,8 +413,8 @@ export default function TopLuxuryProjectsPage() {
               >
                 west
               </span>
-            </a>
-            <a
+            </DevLink>
+            <DevLink
               className="editorial-nav-card editorial-nav-card--next group"
               href={NEXT_ARTICLE.href}
             >
@@ -429,7 +430,7 @@ export default function TopLuxuryProjectsPage() {
               >
                 east
               </span>
-            </a>
+            </DevLink>
           </div>
         </section>
       </main>

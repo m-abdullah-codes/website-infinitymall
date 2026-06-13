@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import OutlineButton from "@/components/OutlineButton";
+import DevOutlineButton from "@/components/DevOutlineButton";
 import InnerPageHero from "@/components/InnerPageHero";
 
 const HERO_IMAGE = 'https://res.cloudinary.com/djnnc4xvt/image/upload/q_auto/f_auto/v1781337694/ongoing_ye5rva.png';
@@ -306,7 +306,7 @@ export default function OngoingProjectsPage() {
           </div>
 
           <div className="mt-6 reveal-on-scroll">
-            <OutlineButton className="w-full py-4">VIEW FLOORPLANS</OutlineButton>
+            <DevOutlineButton className="w-full py-4">VIEW FLOORPLANS</DevOutlineButton>
           </div>
         </div>
 
@@ -344,9 +344,9 @@ export default function OngoingProjectsPage() {
                   </div>
                 ))}
               </div>
-              <OutlineButton className="w-full md:w-auto px-12 py-4">
+              <DevOutlineButton className="w-full md:w-auto px-12 py-4">
                 VIEW FLOORPLANS
-              </OutlineButton>
+              </DevOutlineButton>
             </div>
             <div className="col-span-12 md:col-span-7 relative reveal-on-scroll">
               <div className="aspect-[3/4] relative overflow-hidden shadow-2xl">

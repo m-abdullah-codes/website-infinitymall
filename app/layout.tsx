@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Loader from "@/components/Loader";
 import Navbar from "@/components/Navbar";
 import ScrollReveal from "@/components/ScrollReveal";
+import UnderDevelopmentDialog from "@/components/UnderDevelopmentDialog";
 import "./globals.css";
 
 const ebGaramond = EB_Garamond({
@@ -61,6 +62,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <UnderDevelopmentDialog />
       </body>
     </html>
   );

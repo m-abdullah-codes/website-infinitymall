@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import OutlineButton from "./OutlineButton";
+import { openDevModal } from "./devModalBus";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -81,7 +82,10 @@ export default function Navbar() {
           </ul>
 
           <div className="flex items-center gap-3 sm:gap-4 z-50 relative">
-            <OutlineButton className="hidden sm:inline-flex px-6 lg:px-8 py-3 min-h-[44px]">
+            <OutlineButton
+              className="hidden sm:inline-flex px-6 lg:px-8 py-3 min-h-[44px]"
+              onClick={openDevModal}
+            >
               Request a Call
             </OutlineButton>
 
@@ -160,7 +164,10 @@ export default function Navbar() {
             </p>
             <OutlineButton
               className="w-full py-4 min-h-[52px] text-center justify-center"
-              onClick={closeMenu}
+              onClick={() => {
+                closeMenu();
+                openDevModal();
+              }}
             >
               Request a Call
             </OutlineButton>

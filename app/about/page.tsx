@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import OutlineButton from "@/components/OutlineButton";
+import DevOutlineButton from "@/components/DevOutlineButton";
 import InnerPageHero from "@/components/InnerPageHero";
 
 export const metadata: Metadata = {
@@ -60,7 +60,7 @@ const FEATURED_LEADERS = [
     quote:
       "Infinity is not a destination, but a standard of excellence we uphold in every square foot of our vision.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAl6711XAgQ4YXus2FjzLIs6HlfmqOt9eKWQ8yVjLWJ34VQ4w0ZR-QX-u4CtNaZmrJk77CyhKXfWmhHgm3m8WYY3eQfqAfik2yfqKqdCM41m9JeKIROOsY9VzbtHRYXpZIcKjOv2WKJmOaQHNWMKdrDOH0MesITPZQYU6kdnAw3MdE4ygmweNARCqYV-j4en0Yv2CfMrvH0ATP1NO69NIHD-x5ViMhnpM3RPbVdXNQIBDAU9q-4Agxbr5ejgvwViA9x77jPsgmE5w",
+      '/chairman-maqbool.png',
     verticalTag: "EXECUTIVE CHAIR",
     reversed: false,
     mobileVariant: "overlap" as const,
@@ -71,7 +71,7 @@ const FEATURED_LEADERS = [
     quote:
       "We bridge the gap between engineering possibility and lifestyle reality.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuB8fOesXylrAmULRd4vbP_ZSB2fZ3opEInv3NI5PeT1zOXIPr85Ot6nEyDMKLsAjvjx13IV9dfsEPGYNRHCszlfk5vuiO7MqewJV3_cw5EYZeu3Q0jG-1pg55RIfkOjQBwuwNwbWDWWad6zf40SB0iV0blYUAaQVGJzbNDERDQhhRfcQlL0y6dQ7dejfEphQO-0PJE4Ei4N1iRmFb7hHkC3VGYhMcvRGdA8CWLxg8b1x6BPcqTm86IDgu3fanjxZ7kDVm7Y4HMlbw",
+      '/ceo-salman.jpg',
     verticalTag: null,
     reversed: true,
     mobileVariant: "quote-first" as const,
@@ -82,7 +82,7 @@ const FEATURED_LEADERS = [
     quote:
       "Design is the silent ambassador of our brand's relentless pursuit of perfection.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuB-UNGfrvPotBBTh79cmi3wyQgDdDRDUpLLgL5bGovs0F6rjkmlzXep4HdYV-JRcSykUFBLNra3dp3v3a-GMcHoJjIpe8gPQtwAOdgHO-zHoMbPxLshuc7w9bzxW00oZIXAM8jEOLfx5D7Zp_PDf3VPisVWbG2n4Q4bbeUjVfV73SvRcBgiYSIO2y7fRKlanSfucu6XaHll3521RCCi0BnIIUE0xbwwsaJSr-0Whux7_ZuRybm4HC397LVs_S6kzfatFJJZEl1xaA",
+      '/director-ateeq.png',
     verticalTag: null,
     reversed: false,
     mobileVariant: "inset" as const,
@@ -94,13 +94,13 @@ const COMPACT_LEADERS = [
     role: "EXECUTIVE DIRECTOR",
     name: "Mr. Safdar Zaman",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDPClhp_KlVmUNqS--KxoVqSYBKLuVZPPS5o8f_52ueaxVx1OBm0vGlAmUpirqtUBvnx9-gGI3Lepsro3eFfdnM8hyxvOhrTp9KNFng9RkSVButU4Fy3LlRIJ2GfUWZjKEML2ENWSeVii4oTqfJ_SLW_uaBbnuocmP7sNdH3iG0ECIui0sZd-PXZ1A5X4U9xQhQQm0W8sTn4mJ55EGK229V9tPA2PeYjmcAFYN35jlmCQCezW_PzqghSiWr3Rba3ZiB9Hh3Af2TCg",
+      '/safdar.png',
   },
   {
     role: "DIRECTOR OPERATIONS",
     name: "Syed Laeeq Zaman",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCe0_T2Gw_ey1E7gY9r7FHXOgZyOEqwSES0HGNftj5k8zHE-WqQcjnHk6YUvP7MvMdnsMiuyj1pI45jwQGAMZcc9IFKWY-OAxWK1sNOnT5AvrzP-r0jBAgYCoOFkBKFQMmYZQ_Y1ZCQWKh_nPJs-T7Kqd4CH1wjCB_wJrclFSeH9hWDnKqTTf-kgS_mibVdL02a0sT4wq3acwXcYI0VUIA5jE6Sc0m_Cal-thoylx-OrlsZawwo7mrFrMANz-t418I26jpgW5mw5Q",
+      '/laeeq.png',
   },
 ];
 
@@ -439,9 +439,9 @@ export default function AboutPage() {
               icon of Islamabad&apos;s evolution, where architectural daring
               meets the pinnacle of human experience.
             </p>
-            <OutlineButton className="w-full sm:w-auto px-10 sm:px-12 py-4 sm:py-5 min-h-[52px] duration-500 justify-center">
+            <DevOutlineButton className="w-full sm:w-auto px-10 sm:px-12 py-4 sm:py-5 min-h-[52px] duration-500 justify-center">
               JOIN THE JOURNEY
-            </OutlineButton>
+            </DevOutlineButton>
           </div>
         </section>
       </main>

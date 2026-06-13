@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import OutlineButton from "@/components/OutlineButton";
+import DevOutlineButton from "@/components/DevOutlineButton";
 import InnerPageHero from "@/components/InnerPageHero";
 
 const HERO_IMAGE = 'https://res.cloudinary.com/djnnc4xvt/image/upload/q_auto/f_auto/v1781337579/delivered_azo6rq.png';
@@ -442,9 +442,9 @@ export default function DeliveredProjectsPage() {
             planning, execution, occupancy, and long-term value.
           </h2>
           <div className="w-full h-px bg-gradient-to-r from-transparent via-platinum/20 to-transparent mb-8 md:mb-12" />
-          <OutlineButton className="px-10 md:px-12 py-4 md:py-5 duration-500">
+          <DevOutlineButton className="px-10 md:px-12 py-4 md:py-5 duration-500">
             Schedule a Private Tour
-          </OutlineButton>
+          </DevOutlineButton>
         </div>
       </section>
     </div>

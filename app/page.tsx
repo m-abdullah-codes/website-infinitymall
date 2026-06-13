@@ -1,5 +1,6 @@
 import Image from "next/image";
 import BentoCard from "@/components/BentoCard";
+import DevButton from "@/components/DevButton";
 import MilestoneCard from "@/components/MilestoneCard";
 import ShaderBackground from "@/components/ShaderBackground";
 
@@ -41,7 +42,7 @@ const MILESTONES = [
     barClass: "bg-platinum w-[15%]",
     progress: "15%",
     desktopOffsetClass: "lg:mt-24",
-    gridClass: "bento-milestone--stagger lg:col-span-1",
+    gridClass: "lg:col-span-1",
   },
 ];
 
@@ -128,21 +129,19 @@ export default function Home() {
                 architecture, meticulously engineered for the elite.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-2 sm:pt-4">
-                <button
-                  type="button"
+                <DevButton
                   className="btn-primary-luxury bg-muted-bronze text-soft-ivory hover:bg-soft-ivory hover:text-obsidian w-full sm:w-auto"
                 >
                   Request a Call
-                </button>
-                <button
-                  type="button"
+                </DevButton>
+                <DevButton
                   className="btn-outline-luxury w-full sm:w-auto"
                 >
                   View Brochure
                   <span className="material-symbols-outlined text-[18px]">
                     download
                   </span>
-                </button>
+                </DevButton>
               </div>
             </div>
 
@@ -212,7 +211,7 @@ export default function Home() {
             {/* Milestone bento grid */}
             <div className="bento-grid bento-grid--milestones">
               {MILESTONES.map((milestone, i) => (
-                <div key={milestone.number} className={milestone.gridClass}>
+                <div key={milestone.number} className={`${milestone.gridClass} h-full`}>
                   <MilestoneCard {...milestone} index={i} />
                 </div>
               ))}
@@ -383,12 +382,11 @@ export default function Home() {
                 to bespoke designer labels, every square meter is designed to
                 cater to the unusual.
               </p>
-              <button
-                type="button"
+              <DevButton
                 className="border-b border-soft-ivory pb-2 font-label-caps text-label-caps hover:text-muted-bronze hover:border-muted-bronze transition-all min-h-[44px]"
               >
                 DISCOVER THE EXPERIENCE
-              </button>
+              </DevButton>
             </div>
           </div>
         </section>

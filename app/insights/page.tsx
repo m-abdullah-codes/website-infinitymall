@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import OutlineButton from "@/components/OutlineButton";
+import DevButton from "@/components/DevButton";
+import DevOutlineButton from "@/components/DevOutlineButton";
 import InnerPageHero from "@/components/InnerPageHero";
 
 export const metadata: Metadata = {
@@ -54,20 +55,18 @@ export default function InsightsPage() {
         bottomSlot={
           <div className="insights-filter-rail">
             <div className="insights-filter-scroll scrollbar-hide">
-              <button
-                type="button"
+              <DevButton
                 className="insights-filter-pill bg-soft-ivory text-obsidian"
               >
                 All Intelligence
-              </button>
+              </DevButton>
               {FILTERS.map((filter) => (
-                <button
+                <DevButton
                   key={filter}
-                  type="button"
                   className="insights-filter-pill border border-platinum/20 text-platinum hover:border-soft-ivory active:bg-platinum/5"
                 >
                   {filter}
-                </button>
+                </DevButton>
               ))}
             </div>
           </div>
@@ -449,9 +448,9 @@ export default function InsightsPage() {
               investment opportunities from the Infinity editorial desk.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-stretch sm:items-center">
-              <OutlineButton className="w-full sm:w-auto px-8 sm:px-10 py-4 min-h-[52px] justify-center">
+              <DevOutlineButton className="w-full sm:w-auto px-8 sm:px-10 py-4 min-h-[52px] justify-center">
                 Request a Call
-              </OutlineButton>
+              </DevOutlineButton>
               <Link
                 href={EDITORIAL_HREF}
                 className="btn-outline-luxury w-full sm:w-auto"

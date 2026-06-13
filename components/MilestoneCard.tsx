@@ -29,7 +29,7 @@ export default function MilestoneCard({
 }: MilestoneCardProps) {
   return (
     <article
-      className={`bento-card scroll-reveal ${desktopOffsetClass}`}
+      className={`bento-card scroll-reveal h-full ${desktopOffsetClass}`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
       <div

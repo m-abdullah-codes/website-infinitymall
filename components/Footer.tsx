@@ -1,4 +1,5 @@
 import Link from "next/link";
+import DevLink from "./DevLink";
 
 const EXPLORE_LINKS = [
   { href: "/", label: "Home" },
@@ -29,24 +30,22 @@ export default function Footer() {
             living and commercial success across the region.
           </p>
           <div className="flex gap-4 sm:gap-6">
-            <a
+            <DevLink
               className="w-11 h-11 sm:w-10 sm:h-10 border border-platinum/10 flex items-center justify-center hover:bg-muted-bronze active:scale-95 transition-all group"
-              href="#"
               aria-label="Share"
             >
               <span className="material-symbols-outlined text-sm text-platinum group-hover:text-soft-ivory">
                 share
               </span>
-            </a>
-            <a
+            </DevLink>
+            <DevLink
               className="w-11 h-11 sm:w-10 sm:h-10 border border-platinum/10 flex items-center justify-center hover:bg-muted-bronze active:scale-95 transition-all group"
-              href="#"
               aria-label="Website"
             >
               <span className="material-symbols-outlined text-sm text-platinum group-hover:text-soft-ivory">
                 public
               </span>
-            </a>
+            </DevLink>
           </div>
         </div>
 
