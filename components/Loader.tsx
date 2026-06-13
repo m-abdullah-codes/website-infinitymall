@@ -17,25 +17,110 @@ import {
  * first paint, before React hydrates, and stays smooth even while the page's
  * heavy assets (video, images, fonts) are still downloading.
  *
- * It runs:
- *  - on the initial / hard load of any page — waits for the window `load` event
- *    AND `document.fonts.ready`, with a minimum on-screen time so the full draw
- *    always plays at least once (even on a warm cache); and
- *  - on every in-site navigation — replays a slightly quicker version, covering
- *    the incoming route before it paints so the transition feels branded.
+ * It only dismisses once the page is genuinely *paint-ready*:
+ *  - the window `load` event has fired,
+ *  - `document.fonts.ready` has resolved, AND
+ *  - above-the-fold media is actually displayable — videos have decoded their
+ *    first frame (`loadeddata`) and visible images have decoded. This is the
+ *    crucial bit: `window.load` does NOT wait for a <video> to have a frame, so
+ *    without this the loader would vanish over a still-blank hero.
  *
- * A hard cap force-dismisses the loader if `load` never fires, so a user is
- * never stuck.
+ * A minimum on-screen time guarantees the draw always plays once (even on a warm
+ * cache); a media timeout and a hard cap guarantee a user is never stuck.
+ *
+ * Runs on the initial load of any page and replays (a touch quicker) on every
+ * in-site navigation, covering the incoming route before it paints.
  */
 
 const FIRST_MIN = 2200; // ms — cold load: guarantees a full draw + brief hold
 const NAV_MIN = 1600; // ms — in-site navigation: just enough for one draw
-const MAX_VISIBLE = 9000; // ms — hard safety cap if `load` never fires
+const MEDIA_TIMEOUT = 6000; // ms — stop waiting on a slow/broken hero asset
+const MAX_VISIBLE = 10000; // ms — hard safety cap if a signal never fires
 const EXIT_DURATION = 900; // ms — must match the CSS exit transition
 
 // useLayoutEffect warns during SSR; fall back to useEffect on the server.
 const useIsoLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
+/**
+ * Resolve once the above-the-fold media is ready to paint without a flash of
+ * blank space. Never rejects; resolves early after `timeoutMs` regardless.
+ */
+function waitForMedia(timeoutMs: number): Promise<void> {
+  if (typeof document === "undefined") return Promise.resolve();
+
+  const waits: Promise<unknown>[] = [];
+
+  try {
+    const vh = window.innerHeight || 0;
+    const inViewport = (el: Element) => {
+      const r = el.getBoundingClientRect();
+      // Within (or spanning) the first viewport, and actually laid out.
+      return r.width > 0 && r.height > 0 && r.top < vh && r.bottom > 0;
+    };
+
+    // Videos: wait for the first decoded frame (HAVE_CURRENT_DATA = 2).
+    document.querySelectorAll("video").forEach((v) => {
+      if (v.readyState >= 2) return;
+      waits.push(
+        new Promise<void>((resolve) => {
+          const done = () => {
+            v.removeEventListener("loadeddata", done);
+            v.removeEventListener("canplay", done);
+            v.removeEventListener("error", done);
+            resolve();
+          };
+          v.addEventListener("loadeddata", done, { once: true });
+          v.addEventListener("canplay", done, { once: true });
+          v.addEventListener("error", done, { once: true });
+        }),
+      );
+    });
+
+    // Decide which images to wait for: every priority / eager image (these are
+    // the hero & LCP images the page author flagged as important — next/image
+    // `priority` renders them with fetchpriority="high" + loading="eager"), plus
+    // anything else currently above the fold.
+    const targets = new Set<HTMLImageElement>();
+    document
+      .querySelectorAll<HTMLImageElement>(
+        'img[fetchpriority="high"], img[loading="eager"]',
+      )
+      .forEach((img) => targets.add(img));
+    document
+      .querySelectorAll<HTMLImageElement>("img")
+      .forEach((img) => {
+        if (inViewport(img)) targets.add(img);
+      });
+
+    targets.forEach((img) => {
+      const decode = () =>
+        typeof img.decode === "function"
+          ? img.decode().catch(() => undefined)
+          : Promise.resolve();
+      if (img.complete && img.naturalWidth > 0) {
+        waits.push(decode());
+        return;
+      }
+      waits.push(
+        new Promise<void>((resolve) => {
+          const onLoad = () => decode().then(() => resolve());
+          img.addEventListener("load", onLoad, { once: true });
+          img.addEventListener("error", () => resolve(), { once: true });
+        }),
+      );
+    });
+  } catch {
+    return Promise.resolve();
+  }
+
+  if (waits.length === 0) return Promise.resolve();
+
+  return Promise.race([
+    Promise.all(waits).then(() => undefined),
+    new Promise<void>((resolve) => window.setTimeout(resolve, timeoutMs)),
+  ]);
+}
 
 export default function Loader() {
   const pathname = usePathname();
@@ -106,7 +191,8 @@ export default function Loader() {
       };
 
       // On a cold load, wait for everything; on navigation `readyState` is
-      // already "complete", so dismissal is governed purely by NAV_MIN.
+      // already "complete", so this resolves immediately and the media/font
+      // gates take over.
       const whenLoaded =
         document.readyState === "complete"
           ? Promise.resolve()
@@ -114,7 +200,12 @@ export default function Loader() {
               window.addEventListener("load", () => resolve(), { once: true }),
             );
       const whenFonts = document.fonts?.ready ?? Promise.resolve();
-      Promise.all([whenLoaded, whenFonts]).then(onReady);
+      // Give the route a frame to commit its hero before we scan the DOM.
+      const whenMedia = new Promise<void>((resolve) => {
+        requestAnimationFrame(() => waitForMedia(MEDIA_TIMEOUT).then(resolve));
+      });
+
+      Promise.all([whenLoaded, whenFonts, whenMedia]).then(onReady);
 
       timersRef.current.push(window.setTimeout(beginExit, MAX_VISIBLE));
     },
